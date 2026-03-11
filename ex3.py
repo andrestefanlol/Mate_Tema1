@@ -6,7 +6,7 @@ import random
 def reducere_intervalpi2(x):
 
     k = round(x / math.pi)
-    bool semn=False   #false=pozitiv
+    semn=False   #false=pozitiv
     rest = x - (k * math.pi)
     if rest<0:
         semn=True
