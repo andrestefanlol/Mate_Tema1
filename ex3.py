@@ -6,14 +6,16 @@ import random
 def reducere_intervalpi2(x):
 
     k = round(x / math.pi)
-    semn=0
+    bool semn=False   #false=pozitiv
     rest = x - (k * math.pi)
     if rest<0:
-        semn=1
-        rest=-rest
+        semn=True
+        rest=-rest  #schimba rest in -rest pt antisimetrie
     return rest,semn
+
+
 def my_tan_core(x):
-    c1 = 0.33333333333333333
+    c1=0.33333333333333333
     c2=0.133333333333333333
     c3=0.053968253968254
     c4=0.0218694885361552
@@ -26,15 +28,16 @@ def my_tan_core(x):
 
 def my_tan(x):
     x,semn=reducere_intervalpi2(x)
+
     if (x==math.pi/2):return 0
-    if semn==1:
+    if semn==True:
         if x>=math.pi/4:
             y=math.pi/2-x
             p=my_tan_core(y)
             rezultat=-1/(y+y*y*y*p)
         else:
             p=my_tan_core(x)
-            rezultat=-( x+x*x*x*p)
+            rezultat=-(x+x*x*x*p)
     else:
         if x>=math.pi/4:
             y=math.pi/2-x
@@ -42,7 +45,7 @@ def my_tan(x):
             rezultat=1/(y+y*y*y*p)
         else:
             p=my_tan_core(x)
-            rezultat=( x+x*x*x*p)
+            rezultat=(x+x*x*x*p)
     return rezultat
 
 numere=10000
@@ -66,3 +69,5 @@ for x in valori_test:
 print("Timpul my_tan:",timp_my_tan)
 print("Timpul math.tan:",timp_math_tan)
 print("Eroarea totală:",eroare_totala)
+
+
