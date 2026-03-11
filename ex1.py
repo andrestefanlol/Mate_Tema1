@@ -1,4 +1,3 @@
-import math
 u=1.0
 u_salvat=1.0
 p10=0
