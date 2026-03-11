@@ -26,9 +26,9 @@ def my_tan_core(x):
 
 def my_tan(x):
     x,semn=reducere_intervalpi2(x)
-
+    if (x==math.pi/2):return 0
     if semn==1:
-        if x>math.pi/4:
+        if x>=math.pi/4:
             y=math.pi/2-x
             p=my_tan_core(y)
             rezultat=-1/(y+y*y*y*p)
@@ -36,7 +36,7 @@ def my_tan(x):
             p=my_tan_core(x)
             rezultat=-( x+x*x*x*p)
     else:
-        if x>math.pi/4:
+        if x>=math.pi/4:
             y=math.pi/2-x
             p=my_tan_core(y)
             rezultat=1/(y+y*y*y*p)
@@ -45,7 +45,8 @@ def my_tan(x):
             rezultat=( x+x*x*x*p)
     return rezultat
 
-valori_test = [random.uniform(-math.pi/2, math.pi/2) for _ in range(10000)]
+numere=10000
+valori_test = [random.uniform(-math.pi/2, math.pi/2) for _ in range(numere)]
 start_my = time.perf_counter()
 for x in valori_test:
     _ = my_tan(x)
@@ -62,6 +63,6 @@ eroare_totala = 0
 for x in valori_test:
     eroare_totala += abs(math.tan(x) - my_tan(x))
 
-print(f"Timpul my_tan:   {timp_my_tan:.6f} secunde")
-print(f"Timpul math.tan: {timp_math_tan:.6f} secunde")
-print(f"Eroarea totală:  {eroare_totala:.10f}")
+print("Timpul my_tan:",timp_my_tan)
+print("Timpul math.tan:",timp_math_tan)
+print("Eroarea totală:",eroare_totala)
