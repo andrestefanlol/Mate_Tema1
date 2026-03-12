@@ -30,5 +30,5 @@ while ((x_m*y_m)*z_m)==(x_m*(y_m*z_m)):
     y_m=x_m
     z_m=10.0**(-p)
 #10^-5 nu se poate scrie in baza 2 corect
-print(x_m,p)
+print(x_m,y_m,z_m)
 

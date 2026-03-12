@@ -48,6 +48,11 @@ def my_tan(x):
             rezultat=(x+x*x*x*p)
     return rezultat
 
+print('introdu x:')
+x=float(input())
+print ('MY_tan:',my_tan(x))
+print ("math.tan:",math.tan(x))
+print('eroare',abs((abs(math.tan(x)))-abs(my_tan(x))))
 numere=10000
 valori_test = [random.uniform(-math.pi/2, math.pi/2) for _ in range(numere)]
 start_my = time.perf_counter()
@@ -65,7 +70,9 @@ timp_math_tan = stop_math - start_math
 eroare_totala = 0
 for x in valori_test:
     eroare_totala += abs(math.tan(x) - my_tan(x))
-
+print()
+print("Aproximarea tangentei pt 10000 numere:")
+print()
 print("Timpul my_tan:",timp_my_tan)
 print("Timpul math.tan:",timp_math_tan)
 print("Eroarea totală:",eroare_totala)
