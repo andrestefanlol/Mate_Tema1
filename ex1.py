@@ -6,5 +6,5 @@ while(1.0+u)!=1.0:
     p10+=1
     u=10**(-p10)
 print(u)
-print(f"Cel mai mic m",(p10- 1))
-print(f"Valoarea u: 10^-",(p10 - 1))
+print("Cel mai mic m",(p10- 1))
+print("Valoarea u: 10^-",(p10 - 1))
